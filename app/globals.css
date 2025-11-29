@@ -261,6 +261,110 @@ body {
   gap: 1.5rem;
 }
 
+.social-media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.social-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  text-align: center;
+  transition: all 300ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(244, 196, 48, 0.1), transparent 70%);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.social-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(244, 196, 48, 0.5);
+  box-shadow: 0 20px 40px rgba(244, 196, 48, 0.2);
+}
+
+.social-card:hover::before {
+  opacity: 1;
+}
+
+.social-icon-wrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(244, 196, 48, 0.1);
+  border: 2px solid rgba(244, 196, 48, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 300ms ease;
+}
+
+.social-card:hover .social-icon-wrapper {
+  background: rgba(244, 196, 48, 0.2);
+  border-color: var(--gold);
+  transform: scale(1.1) rotate(5deg);
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--gold);
+  transition: transform 300ms ease;
+}
+
+.social-card:hover .social-icon {
+  transform: scale(1.15);
+}
+
+.social-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.social-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.social-description {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.social-cta {
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition: transform 300ms ease;
+  display: inline-block;
+}
+
+.social-card:hover .social-cta {
+  transform: translateX(4px);
+}
+
 .drop-shadow-glow {
   filter: drop-shadow(0 20px 40px rgba(244, 196, 48, 0.35));
 }
